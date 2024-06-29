@@ -1,0 +1,8 @@
+CREATE DATABASE database1;
+USE database1;
+CREATE TABLE employees (
+  first_name varchar(45) DEFAULT NULL,
+  last_name varchar(45) DEFAULT NULL
+);
+
+INSERT INTO employees (first_name, last_name) VALUES ('eugenio', 'lezzio');
