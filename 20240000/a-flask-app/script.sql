@@ -1,4 +1,4 @@
-CREATE DATABASE database1;
+CREATE DATABASE IF NOT EXISTS database1;
 USE database1;
 CREATE TABLE employees (
   first_name varchar(45) DEFAULT NULL,
