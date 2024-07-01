@@ -34,8 +34,9 @@ resource "random_integer" "ri" {
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
   name     = var.AZURE_RESOURCE_GROUP
-  location = var.AZURE_REGION
+  location = var.AZURE_REGION  # Modificato da "westus" a var.AZURE_REGION
 }
+
 
 # Create the Linux App Service Plan
 resource "azurerm_service_plan" "appserviceplan" {
@@ -93,6 +94,7 @@ resource "azurerm_app_service_source_control" "python_scm" {
   use_manual_integration = true
   use_mercurial      = false
 }
+
 resource "azurerm_mysql_flexible_server" "example" {
   name                   = "its-rizzoli-idt-mysql-${random_integer.ri.result}"
   resource_group_name    = azurerm_resource_group.rg.name
@@ -106,3 +108,4 @@ resource "azurerm_mysql_flexible_server" "example" {
 output "mysql_fqdn" {
   value = azurerm_mysql_flexible_server.example.fqdn
 }
+
