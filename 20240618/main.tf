@@ -22,7 +22,7 @@ variable "AZURE_APP_SERVICE_REPO_URL" {
 
 variable "AZURE_REGION" {
   type    = string
-  default = "eastus"
+  default = "northeurope"
 }
 
 # Generate a random integer to create a globally unique name
@@ -96,7 +96,7 @@ resource "azurerm_app_service_source_control" "python_scm" {
 }
 
 resource "azurerm_mysql_flexible_server" "example" {
-  name                   = "its-rizzoli-idt-mysql-lol-${random_integer.ri.result}"
+  name                   = "its-rizzoli-idt-mysql-marcolino${random_integer.ri.result}"
   resource_group_name    = azurerm_resource_group.rg.name
   location               = var.AZURE_REGION
   administrator_login    = "psqladmin"
