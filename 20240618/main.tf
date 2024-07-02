@@ -34,14 +34,14 @@ resource "random_integer" "ri" {
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
   name     = var.AZURE_RESOURCE_GROUP
-  location = var.AZURE_REGION  # Modificato da "westus" a var.AZURE_REGION
+  location = "eastus"  # Modificato da "westus" a var.AZURE_REGION
 }
 
 
 # Create the Linux App Service Plan
 resource "azurerm_service_plan" "appserviceplan" {
   name                = "webapp-${random_integer.ri.result}"
-  location            = "eastus"
+  location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   os_type             = "Linux"
   sku_name            = "S1"
