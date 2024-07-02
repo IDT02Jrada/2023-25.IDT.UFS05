@@ -34,7 +34,7 @@ resource "random_integer" "ri" {
 # Create the resource group
 resource "azurerm_resource_group" "rg" {
   name     = var.AZURE_RESOURCE_GROUP
-  location = "eastus"  # Modificato da "westus" a var.AZURE_REGION
+  location = "westus"  # Modificato da "westus" a var.AZURE_REGION
 }
 
 
